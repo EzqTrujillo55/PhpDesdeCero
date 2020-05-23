@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2020 a las 02:40:36
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.4
+-- Host: 127.0.0.1
+-- Generation Time: May 23, 2020 at 04:15 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tiendavirtual`
+-- Database: `tiendavirtual`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -36,32 +36,73 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Dumping data for table `productos`
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `foto`) VALUES
 (1, 'camisa', 'deportiva', 5, 0),
 (2, 'lenovo ideapad 250', 'Text', 700, 1),
-(3, 'xiaomi ', 'Text', 500, 5);
+(3, 'xiaomi ', 'Text', 500, 5),
+(4, 'samsung j1 usado ', 'Text', 0, 0),
+(5, '', 'Text', 0, 0),
+(6, '', 'Text', 0, 0),
+(7, '', 'Text', 0, 0),
+(8, 'sadasd', 'Text', 0, 0),
+(9, 'eeee', 'Text', 0, 0),
+(10, 'dell', 'Text', 500, 0);
+
+-- --------------------------------------------------------
 
 --
--- Índices para tablas volcadas
+-- Table structure for table `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombreUsuario` varchar(10) NOT NULL,
+  `clave` text NOT NULL,
+  `rol` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombreUsuario`, `clave`, `rol`) VALUES
+(1, 'pablo', '12345', 'ADMIN'),
+(2, 'pablo2', '$2y$10$0fLb/Xc0grni1olhBAEvFu2rY/Lwq0WaM1kIlx5Qr.uJswZV8JeZa', 'ADMIN'),
+(3, 'gaby', '$2y$10$pzZbG7bdrI8jcJYXD636LOUVu/YVROBJwp1.QOHjx8UiswNJXaTxO', 'ADMIN');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 

@@ -1,4 +1,5 @@
 <?php
+    include_once('../Vistas/master.php');
     require_once('../Clases/Producto.php');
     $objProducto = new Producto();
     $productos = $objProducto->getProductos();
@@ -9,14 +10,11 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de productos</title>
 </head>
 
 <body>
+   <?php include('../Vistas/header.php'); ?>
     <div class="container">
         <h3 class="text-center">Gestión Productos</h3>
         <form action="../Acciones/addProduct.php" method="post">

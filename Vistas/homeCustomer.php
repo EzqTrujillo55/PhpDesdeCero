@@ -23,6 +23,7 @@ $infoUsuarioLogeado = $objUsuario->getSession();
             <?php foreach ($productos as $producto): ?>
             <div class="col-4">
                 <div class="card mt-2">
+                <img class="card-img-top" src="<?php echo $producto['foto']; ?>" alt="No se ha encontrado foto">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $producto['nombre']; ?></h5>
                         <p class="card-text"><?php echo '$' . $producto['precio']; ?></p>
@@ -39,3 +40,4 @@ $infoUsuarioLogeado = $objUsuario->getSession();
 </body>
 
 </html>
+

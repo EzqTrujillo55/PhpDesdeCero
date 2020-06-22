@@ -44,7 +44,7 @@ class Usuario extends Conexion
             $mensaje = false; //No existe un usuario con dicho nombre!
         } else {
             if (password_verify($clave, $coincidencia['clave'])) {
-                $this->createSession($coincidencia['nombreUsuario'], $coincidencia['rol']);
+                $this->createSession($coincidencia['id'], $coincidencia['nombreUsuario'], $coincidencia['rol']);
                 $mensaje = ['estado' => true, 'info' => $coincidencia];
             } else {
                 $mensaje = ['estado' => false, 'info' => 'Credenciales incorrectas'];
@@ -53,10 +53,10 @@ class Usuario extends Conexion
         return $mensaje;
     }
 
-    public function createSession($nombreUsuario, $rol)
+    public function createSession($idUsuario, $nombreUsuario, $rol)
     {
         session_start();
-        $_SESSION['usuarioLogeado'] = array('nombreUsuario' => $nombreUsuario, 'rol' => $rol);
+        $_SESSION['usuarioLogeado'] = array('idUsuario'=> $idUsuario , 'nombreUsuario' => $nombreUsuario, 'rol' => $rol);
         $_SESSION['carritoActual'] = [];
     }
 

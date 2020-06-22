@@ -21,6 +21,7 @@ class Conexion{
         $resultado = $pdoSelect->fetchAll();
         return $resultado; 
     }
+
 }
 
     /*$objConexion = new Conexion();

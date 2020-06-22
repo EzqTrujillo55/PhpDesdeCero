@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2020 at 04:15 AM
+-- Generation Time: Jun 22, 2020 at 04:42 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -24,6 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `idCategoria` int(11) NOT NULL,
+  `nombreCategoria` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `categorias`
+--
+
+INSERT INTO `categorias` (`idCategoria`, `nombreCategoria`) VALUES
+(1, 'Tecnología');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `productos`
 --
 
@@ -32,7 +50,7 @@ CREATE TABLE `productos` (
   `nombre` varchar(20) NOT NULL,
   `categoria` varchar(15) NOT NULL,
   `precio` double NOT NULL,
-  `foto` int(11) NOT NULL
+  `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,16 +58,15 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `foto`) VALUES
-(1, 'camisa', 'deportiva', 5, 0),
-(2, 'lenovo ideapad 250', 'Text', 700, 1),
-(3, 'xiaomi ', 'Text', 500, 5),
-(4, 'samsung j1 usado ', 'Text', 0, 0),
-(5, '', 'Text', 0, 0),
-(6, '', 'Text', 0, 0),
-(7, '', 'Text', 0, 0),
-(8, 'sadasd', 'Text', 0, 0),
-(9, 'eeee', 'Text', 0, 0),
-(10, 'dell', 'Text', 500, 0);
+(21, 'cámara web', 'Tecnología', 50, '../imagenes/camara-web-microsoft-lifecam-studio-q2f-00013-hd-1080p.jpg'),
+(22, 'dell', 'Tecnología', 500, '../imagenes/Captura.JPG'),
+(23, 'cámara web', 'Tecnología', 50, '../imagenes/camara-web-microsoft-lifecam-studio-q2f-00013-hd-1080p.jpg'),
+(24, 'cámara web', 'Tecnología', 50, '../imagenes/camara-web-microsoft-lifecam-studio-q2f-00013-hd-1080p.jpg'),
+(25, 'dell', 'Tecnología', 50, '../imagenes/Captura.JPG'),
+(26, 'dell', 'Tecnología', 50, '../imagenes/Captura.JPG'),
+(27, 'dell', 'Tecnología', 50, '../imagenes/Captura.JPG'),
+(28, 'dell', 'Tecnología', 50, '../imagenes/Captura.JPG'),
+(29, 'dell', 'Tecnología', 50, '../imagenes/Captura.JPG');
 
 -- --------------------------------------------------------
 
@@ -61,21 +78,31 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nombreUsuario` varchar(10) NOT NULL,
   `clave` text NOT NULL,
-  `rol` varchar(10) NOT NULL
+  `rol` varchar(10) NOT NULL,
+  `permisoProductos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombreUsuario`, `clave`, `rol`) VALUES
-(1, 'pablo', '12345', 'ADMIN'),
-(2, 'pablo2', '$2y$10$0fLb/Xc0grni1olhBAEvFu2rY/Lwq0WaM1kIlx5Qr.uJswZV8JeZa', 'ADMIN'),
-(3, 'gaby', '$2y$10$pzZbG7bdrI8jcJYXD636LOUVu/YVROBJwp1.QOHjx8UiswNJXaTxO', 'ADMIN');
+INSERT INTO `usuarios` (`id`, `nombreUsuario`, `clave`, `rol`, `permisoProductos`) VALUES
+(1, 'pablo', '12345', 'ADMIN', 0),
+(2, 'pablo2', '$2y$10$0fLb/Xc0grni1olhBAEvFu2rY/Lwq0WaM1kIlx5Qr.uJswZV8JeZa', 'ADMIN', 0),
+(3, 'gaby', '$2y$10$pzZbG7bdrI8jcJYXD636LOUVu/YVROBJwp1.QOHjx8UiswNJXaTxO', 'ADMIN', 0),
+(4, 'pablo', '$2y$10$bvWuWmHTeP66G5VD9e7ITOiuLWBw3zYRbjPiEksSnPtrBS5jbpdhW', 'CLIENTE', 0),
+(5, 'javier', '$2y$10$ESFfQh904cVTsJazVzLOCOwuBdb7mGZsGezARdTtqbPP1iZ5vA87m', 'CLIENTE', 0),
+(6, 'lux', '$2y$10$275WWlSXVUGq.U4PsqNWpuIPpo41W9lCr6sAkH45MbNV9CFDlMSIe', 'CLIENTE', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`idCategoria`);
 
 --
 -- Indexes for table `productos`
@@ -94,16 +121,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
